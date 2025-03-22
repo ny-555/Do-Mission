@@ -18,15 +18,14 @@ export default function LoginIndex() {
   } = useForm<LoginForm>();
 
   const onSubmit = async (data: LoginForm) => {
-    // const { email, password } = data;
     await axiosInstance.post("/users/login", { data });
     router.push("/users");
   };
 
   return (
     <>
-      <div className={`text-2xl font-bold text-center space-y-4 pt-10`}>
-        <h1 className={`text-4xl`}>ユーザー登録画面</h1>
+      <div className={`text-center space-y-4 pt-10`}>
+        <h1 className={`text-3xl font-semibold`}>ユーザー登録画面</h1>
         <p>メールアドレス、パスワードを入力してください</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="メールアドレス">メールアドレス</label>
@@ -38,11 +37,9 @@ export default function LoginIndex() {
             {...register("email", {
               required: "メールアドレスは必須です",
             })}
-            className={`border-2 w-1/3 bg-white border-gray-300 p-2 rounded-xl`}
+            className={`border w-1/3 bg-white border-gray-300 p-1 rounded-lg`}
           />
-          <p className={`font-normal text-lg text-red-500`}>
-            {errors.email?.message}
-          </p>
+          <p className={`font-normal text-red-500`}>{errors.email?.message}</p>
 
           <label htmlFor="パスワード">パスワード</label>
           <br />
@@ -53,9 +50,9 @@ export default function LoginIndex() {
             {...register("password", {
               required: "パスワードは必須です",
             })}
-            className={`border-2 w-1/3 bg-white border-gray-300 p-2 rounded-xl`}
+            className={`border w-1/3 bg-white border-gray-300 p-1 rounded-lg`}
           />
-          <p className={`font-normal text-lg text-red-500`}>
+          <p className={`font-normal text-red-500`}>
             {errors.password?.message}
           </p>
 
@@ -67,10 +64,7 @@ export default function LoginIndex() {
         </form>
 
         <div>
-          <Link
-            href="/"
-            className={`mx-auto text-blue-600 hover:text-blue-400`}
-          >
+          <Link href="/" className={`mx-auto underline`}>
             トップにもどる
           </Link>
         </div>

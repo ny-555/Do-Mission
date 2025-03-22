@@ -25,8 +25,8 @@ export default function SignupIndex() {
 
   return (
     <>
-      <div className={`text-2xl font-bold text-center space-y-4 pt-10`}>
-        <h1 className={`text-4xl`}>ユーザー登録画面</h1>
+      <div className={`text-center space-y-4 pt-10`}>
+        <h1 className={`text-2xl`}>ユーザー登録画面</h1>
         <p>ユーザーネーム、メールアドレスを入力してください</p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="ユーザーネーム">ユーザーネーム</label>
@@ -40,7 +40,7 @@ export default function SignupIndex() {
               minLength: { value: 2, message: "2文字以上にしてください" },
               maxLength: { value: 16, message: "16文字以内にしてください" },
             })}
-            className={`border-2 w-1/3 bg-white border-gray-300 p-2 rounded-xl`}
+            className={`border w-1/3 bg-white border-gray-300 p-1 rounded-lg`}
           />
           <p className={`font-normal text-lg text-red-500`}>
             {errors.name?.message}
@@ -55,7 +55,7 @@ export default function SignupIndex() {
             {...register("email", {
               required: "メールアドレスは必須です",
             })}
-            className={`border-2 w-1/3 bg-white border-gray-300 p-2 rounded-xl`}
+            className={`border w-1/3 bg-white border-gray-300 p-1 rounded-lg`}
           />
           <p className={`font-normal text-lg text-red-500`}>
             {errors.email?.message}
@@ -69,10 +69,7 @@ export default function SignupIndex() {
         </form>
 
         <div>
-          <Link
-            href="/"
-            className={`mx-auto text-blue-600 hover:text-blue-400`}
-          >
+          <Link href="/" className={`mx-auto underline`}>
             トップにもどる
           </Link>
         </div>

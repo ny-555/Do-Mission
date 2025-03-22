@@ -5,6 +5,7 @@ import { axiosInstance } from "@/utils/axios";
 import { PrimaryButton } from "@/components/atoms/botton/PrimaryButton";
 import { Card } from "@/components/atoms/card/card";
 import { Mission } from "@/types/mission";
+import { SecondaryButton } from "@/components/atoms/botton/SecondaryButton";
 
 export default function MissionsIndex() {
   const [missions, setMissions] = useState<Mission[]>();
@@ -47,9 +48,9 @@ export default function MissionsIndex() {
           ))}
         </ul>
         <div>
-          <PrimaryButton>
+          <SecondaryButton>
             <Link href="/missions/create">ミッションを新規作成</Link>
-          </PrimaryButton>
+          </SecondaryButton>
         </div>
       </div>
     </>
